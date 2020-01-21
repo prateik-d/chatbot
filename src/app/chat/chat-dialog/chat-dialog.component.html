@@ -1,0 +1,50 @@
+<div class="header">
+	<img src="https://www.qualitasit.com/wp-content/themes/twentyseventeen-child/assets/img/logo-svg.svg" />
+	Smart ChatBot
+</div>
+
+<div class="footer chat_window">
+	<div class="spacer-white"></div>
+	<div class="chat-box">
+		<div class="msg-scroll">
+			<div class="message from">
+				<p>Hi there! Its great to see you here. I'm Qbot - a chatbot for Qualitas IT.</p>
+				<p>I am here to help you understand what all products, solutions and services we offer.</p>
+				<p>So now that you are here, what are you looking for?</p>
+				<p><a class="option_selection" (click)="getData('Mobile App development')">Mobile App development</a>
+				</p>
+				<p><a class="option_selection" (click)="getData('HRMS system')">HRMS system</a></p>
+				<p><a class="option_selection" (click)="getData('E-Learning system')">E-Learning system</a></p>
+				<p><a class="option_selection" (click)="getData('Programmers/Developers')">Programmers/Developers</a>
+				</p>
+				<p><a class="option_selection" (click)="getData('Web & Graphics designing')">Web & Graphics
+						designing</a></p>
+				<p><a class="option_selection" (click)="getData('Wordpress customisation')">Wordpress customisation</a>
+				</p>
+				<p><a class="option_selection" (click)="getData('About our Company')">About our Company</a></p>
+				<p><a class="option_selection" (click)="getData('Job Openings')">Job Openings</a></p>
+				<p><a class="option_selection" (click)="getData('None of these')">None of these</a></p>
+			</div>
+		</div>
+		<div class="msg-scroll">
+			<div #scrollMe class="">
+				<ng-container *ngFor="let message of messages | async">
+		
+					<div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
+		
+						<!-- convert  -->
+						<span (click)="getDFData($event)" [innerHTML]="message.content" id="df_data"></span>
+						<!-- {{ message.content }} -->
+					</div>
+				</ng-container>
+			</div>
+			<div id="target"></div>
+		</div>
+		</div>
+		<div class="input-btns">
+			<label for="nameField">Your Message</label>
+			<div *ngIf="isChatError" class="chat_error">Please enter a valid message.</div>
+			<input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" required>
+			<button class="float-right" (click)="sendMessage()" [disabled]="!formValue">Send</button>
+		</div>
+	</div>
