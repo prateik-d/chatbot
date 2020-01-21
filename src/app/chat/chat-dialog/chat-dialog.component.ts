@@ -32,11 +32,18 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
     if (this.formValue === undefined) {
       this.isChatError = true;
       return;
-    } else {
-      if (
+	}
+	else
+	{
+	  if (!this.formValue.trim().length)
+	  {
+		  this.isChatError = true;
+		  return;
+	  }
+      else if (
         this.formValue !== '' ||
         this.formValue.length !== 0 ||
-        this.formValue == undefined
+		this.formValue == undefined
       ) {
         if (EmailValidator.validate(this.formValue)) {
           console.log('This is email');
@@ -47,7 +54,8 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
         document
           .querySelector('#target')
           .scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
+	  }
+	  else {
         this.isChatError = true;
         return;
       }
