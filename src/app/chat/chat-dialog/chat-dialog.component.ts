@@ -7,55 +7,64 @@ import { scan } from 'rxjs/operators';
 import * as EmailValidator from 'email-validator';
 
 @Component({
-  selector: 'app-chat-dialog',
-  templateUrl: './chat-dialog.component.html',
-  styleUrls: ['./chat-dialog.component.css']
+  selector: "app-chat-dialog",
+  templateUrl: "./chat-dialog.component.html",
+  styleUrls: ["./chat-dialog.component.css"]
 })
 export class ChatDialogComponent implements OnInit, AfterViewChecked {
   messages: Observable<Message[]>;
   formValue: string;
   isChatError = false;
+  isOpened = false;
+  isLoading = false;
+  showMainContent: Boolean = true;
 
-  @ViewChild('scrollMe', { static: true })
+  @ViewChild("scrollMe", { static: true })
   private myScrollContainer: ElementRef;
   router: any;
 
   constructor(public chat: ChatService, private elementref: ElementRef) {}
 
   ngOnInit() {
-	this.messages = this.chat.conversation
+    this.messages = this.chat.conversation
       .asObservable()
       .pipe(scan((acc, val) => acc.concat(val)));
   }
 
   sendMessage() {
+    this.isLoading = true;
+
     if (this.formValue === undefined) {
       this.isChatError = true;
       return;
-	}
-	else
-	{
-	  if (!this.formValue.trim().length)
-	  {
-		  this.isChatError = true;
-		  return;
-	  }
-      else if (
-        this.formValue !== '' ||
+    } else {
+      if (!this.formValue.trim().length) {
+        this.isChatError = true;
+        return;
+      } else if (
+        this.formValue !== "" ||
         this.formValue.length !== 0 ||
-		this.formValue == undefined
+        this.formValue == undefined
       ) {
         if (EmailValidator.validate(this.formValue)) {
-          console.log('This is email');
+          console.log("This is email");
         }
         this.chat.converse(this.formValue);
-        this.formValue = '';
+        this.formValue = "";
         this.isChatError = false;
-        document
-          .querySelector('#target')
-          .scrollIntoView({ behavior: 'smooth', block: 'center' });
-	  }
-	  else {
+        this.isOpened = true;
+
+        setTimeout(
+          function() {
+            this.isOpened = false;
+            this.isLoading = false;
+            document
+              .querySelector("#target")
+              .scrollIntoView({ behavior: "smooth", block: "center" });
+          }.bind(this),
+          1000
+        );
+      } else {
         this.isChatError = true;
         return;
       }
@@ -73,18 +82,24 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   }
 
   getData(option_selection) {
-    console.log(option_selection);
+	console.log(option_selection);
+	this.showMainContent = this.showMainContent ? true : true;
     this.formValue = option_selection;
     this.sendMessage();
-  }
+}
 
-  getDFData(evt) {
-    const option_selection = evt.target.getAttribute('value');
+getDFData(evt) {
+	const option_selection = evt.target.getAttribute("value");
     console.log(option_selection);
-
+	this.showMainContent = this.showMainContent ? true : true;
+	
     if (option_selection != null) {
       this.formValue = option_selection;
       this.sendMessage();
     }
+  }
+  
+  reset_data() {
+    this.showMainContent = this.showMainContent ? false : true;
   }
 }
