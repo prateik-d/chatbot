@@ -84,3 +84,13 @@ p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left}
 .bg-gray a{color:#0375bc}
 .option_selection{border:1px solid #0275bc;color:#0275bc;display:block;padding:8px 16px;border-radius:8px;background:#fff;min-width:70px;cursor:pointer;transition:.2s all linear;font-size:13px}
 .option_selection:hover{background-color:rgba(2,117,188,.1);transition:.2s all linear;border:1px solid #0275bc;color:#0275bc;text-decoration: none;}
+/*slider*/
+.carousel{width:220px;border:1px solid #bfd8f1;border-radius:8px;font-size: 14px;display: table;height: 240px;white-space: initial !important;}
+.carousel-control{width:initial;background:initial;bottom:initial;top:50%;transform:translateY(-50%);position: absolute;}
+.carousel-control.left{left:-28px}
+.carousel-control.right{right:-28px}
+.carousel img{margin: 0 auto;border-top-left-radius: 8px;border-top-right-radius: 8px;}
+.carousel strong{display: block;padding: 10px 10px 0 10px;}
+.carousel .item a{display: table;width: 100%;background:#eaf0f6;text-align: center;padding: 5px 0;transition: 0.2s all linear;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}
+.carousel .item a:hover{text-decoration: none;transition: 0.2s all linear;background: #037ac3;color: #fff;}
+.carousel p{margin: 0 !important;padding: 5px 10px 10px 10px;font-size: 13px;line-height: 18px;}
