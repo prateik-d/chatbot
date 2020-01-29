@@ -1,222 +1,52 @@
-.chat-box {
-	display: block;
-	width: 100%;
-	position: relative;
-	overflow-y: scroll;
-	max-height: 410px;
-	top: 0px;
-	padding: 15px;
+.chat-box{display:block;width:100%;position:relative;overflow-y:scroll;max-height:410px;top:0;padding:15px}
+.spacer-white{position:absolute;left:0;top:0;height:20px;background:#fff;width:100%;z-index:9}
+.message.from{margin-bottom:10px}
+.message.to{color:#fff;text-align:right;display:table;width:100%;margin-bottom:10px}
+.message.to .qit-logo-msg-from{display:none}
+.message.from .user-logo-msg-from{display:none}
+.loader-box{position:fixed;bottom:37%;right:14%;display:table;background:#fff;box-shadow:0 0 10px #ccc;width:60px;height:60px;z-index:999999999}
+.lds-ring{position:fixed;display:block;width:40px;height:40px;border:3px solid #0275bc;border-radius:50%;animation:lds-ring 1.2s linear infinite;border-color:#0275bc transparent transparent transparent;right:14.5%;bottom:38.2%}
+.lds-ring div:nth-child(1){animation-delay:-.45s}
+@keyframes lds-ring{0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
 }
-.spacer-white {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 20px;
-	background: #fff;
-	width: 100%;
-	z-index: 9;
-}
-.message.from {
-	margin-bottom: 10px;
-}
-.message.to {
-  color: #fff;
-  text-align: right;
-  display: table;
-  width: 100%;
-  margin-bottom: 10px;
-}
-.message.to .qit-logo-msg-from{display: none}
-.message.from .user-logo-msg-from{display: none}
-.loader-box{
-  position: fixed;
-  bottom: 37%;
-  right: 14%;
-  display: table;
-  background: #fff;
-  box-shadow: 0 0 10px #ccc;
-  width: 60px;
-  height: 60px;
-  z-index:999999999
-}.lds-ring {
-position:fixed;
-  display: block;
-  width: 40px;
-  height: 40px;
-  border: 3px solid #0275bc;
-  border-radius: 50%;
-animation: lds-ring 1.2s linear infinite;
-  border-color: #0275bc transparent transparent transparent;
-  right: 14.5%;
-  bottom: 38.2%;
-}
-.lds-ring div:nth-child(1) {
-animation-delay: -0.45s;
-}
-@keyframes lds-ring {
-0% {
-  transform: rotate(0deg);
-}
-100% {
-  transform: rotate(360deg);
-}
-}
-
-
-.message.to span {
-  background-color: #0275bc;
-  border-radius: 8px;
-  border-top-right-radius: 0px;
-  padding: 8px 16px;
-  color: #fff;
-  display: table;
-  float: right;
-}
-.message.to+.message.to,
-.message.from+.message.from {
-	margin-top: -10px;
-}
-.header {
-	text-align: center;
-	font-size: 3rem;
-}
-.qit-logo-msg-from{
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  border: 2px solid #2588c5;
-  border-radius: 50%;
-  padding: 4px;
-}
-.user-logo-msg-from{
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 3px 0 0 10px;
-  border: 2px solid #0476bd;
-  border-radius: 50%;
-}
-.qit-logo-msg-from img,.user-logo-msg-from img{border-radius: 50%;}
-.message.from .content,.message.to .content{
-  display: inline-block;
-  width: 85%;
-  vertical-align: top;
-}
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-size: 15px;
-  color: #ccc;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  font-size: 15px;
-  color: #ccc;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  font-size: 15px;
-  color: #ccc;
-}
-:-moz-placeholder { /* Firefox 18- */
-  font-size: 15px;
-  color: #ccc;
-}
-.input-btns {
-	position: relative;
-}
-textarea {
-	margin-bottom: 0px;
-}
-.header {
-	position: relative;
-	z-index: 1;
-	background-color: #828c91;
-	color: #fff;
-}
-button {
-	background-color: #2ca3dd;
-	border: 0.1rem solid #3b7b9b;
-	color: #fff;
-}
-button[disabled]:hover {
-	background-color: #4ea1ca;
-	border-color: #4ea1ca;
-}
-input[type='text']:focus {
-	border-color: #2ca3dd;
-}
-.bot-company-logo {
-	background: linear-gradient(45deg,#0275bc,#0695ec);
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
-	padding: 10px 15px;
-	color: #fff;
-}
-.circle-bg-white {
-	width: 40px;
-	height: 40px;
-	background: #FFF;
-	padding: 5px;
-	border-radius: 50%;
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 10px;
-}
-.chat_window {
-	box-shadow: 0 5px 20px rgba(0,0,0,.1);
-	border-radius: 8px;
-	width: 376px;
-	min-height: 530px;
-	right: 100px;
-	bottom: 100px;
-	position: fixed;
-  display: block;
-  z-index: 99999999;
-  background: #fff;
-}
-#target{
-  display: table;
-  height: 1px;
-  width: 100%;
-}
-.input-btns {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-  left: 0;
-  border-top: 1px solid #ddd;
-}
-.chat_error {
-	color: #eb0028;
-}
-.btn-refresh,.btn-send{
-  background:none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-}
-.btn-refresh{
-  top: 5px;
-  right: 55px;
-}
-.btn-send{
-  top: 5px;
-  right: 17px;
-}
-.btn-send:hover{background: none;background-color: transparent!important;}
-.btn-refresh:focus, .btn-refresh:hover ,.btn-send :focus, .btn-send:hover {
-  box-shadow: none !important;
-}
-input{
-  border: none;
-  margin: 0;
-  height: 53px;
-  font-size: 15px;
-  padding: 13px 85px 17px 15px;
-  color: #333;
-}
-input:focus{    border: none !important;
-  box-shadow: none !important}
-.chat_error{    position: absolute;
-  font-size: 13px;
-  left: 20px;
-  top: -21px;}
+.message.to span{background-color:#0275bc;border-radius:8px;border-top-right-radius:0;padding:8px 16px;color:#fff;display:table;float:right}
+.message.from+.message.from,.message.to+.message.to{margin-top:-10px}
+.header{text-align:center;font-size:3rem}
+.qit-logo-msg-from{display:inline-block;width:30px;height:30px;margin-right:10px;border:2px solid #2588c5;border-radius:50%;padding:4px}
+.user-logo-msg-from{display:inline-block;width:30px;height:30px;margin:3px 0 0 10px;border:2px solid #0476bd;border-radius:50%}
+.qit-logo-msg-from img,.user-logo-msg-from img{border-radius:50%}
+.message.from .content,.message.to .content{display:inline-block;width:85%;vertical-align:top}
+::-webkit-input-placeholder{font-size:15px;color:#ccc}
+::-moz-placeholder{font-size:15px;color:#ccc}
+:-ms-input-placeholder{font-size:15px;color:#ccc}
+:-moz-placeholder{font-size:15px;color:#ccc}
+.input-btns{position:relative}
+textarea{margin-bottom:0}
+.header{position:relative;z-index:1;background-color:#828c91;color:#fff}
+button{background-color:#2ca3dd;border:.1rem solid #3b7b9b;color:#fff}
+button[disabled]:hover{background-color:#4ea1ca;border-color:#4ea1ca}
+input[type=text]:focus{border-color:#2ca3dd}
+.bot-company-logo{background:linear-gradient(45deg,#0275bc,#0695ec);border-top-left-radius:8px;border-top-right-radius:8px;padding:10px 15px;color:#fff}
+.circle-bg-white{width:40px;height:40px;background:#fff;padding:5px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:10px}
+.chat_window{box-shadow:0 5px 20px rgba(0,0,0,.1);border-radius:8px;width:376px;min-height:530px;right:100px;bottom:100px;position:fixed;display:block;z-index:99999999;background:#fff}
+#target{display:table;height:1px;width:100%}
+.input-btns{position:absolute;bottom:0;width:100%;left:0;border-top:1px solid #ddd}
+.chat_error{color:#eb0028}
+.btn-refresh,.btn-send{background:0 0;border:none;padding:0;margin:0;position:absolute}
+.btn-refresh{top:5px;right:55px}
+.btn-send{top:5px;right:17px}
+.btn-send:hover{background:0 0;background-color:transparent!important}
+.btn-refresh:focus,.btn-refresh:hover,.btn-send :focus,.btn-send:hover{box-shadow:none!important}
+input{border:none;margin:0;height:53px;font-size:15px;padding:13px 85px 17px 15px;color:#333}
+input:focus{border:none!important;box-shadow:none!important}
+.chat_error{position:absolute;font-size:13px;left:20px;top:-21px}
+.carousel{width:220px;border:1px solid #bfd8f1;border-radius:8px;font-size: 14px;display: table;height: 300px;}
+.carousel-control{width:initial;background:initial;bottom:initial;top:50%;transform:translateY(-50%);position: absolute;}
+.carousel-control.left{left:-13px}
+.carousel-control.right{right:-13px}
+.carousel img{margin: 0 auto;border-top-left-radius: 8px;border-top-right-radius: 8px;}
+.carousel strong{display: block;padding: 10px 10px 0 10px;}
+.carousel .carousel-item a{display: table;width: 100%;background:#eaf0f6;text-align: center;padding: 5px 0;transition: 0.2s all linear;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}
+.carousel .carousel-item a:hover{text-decoration: none;transition: 0.2s all linear;background: #037ac3;color: #fff;}
+.carousel p{margin: 0 !important;padding: 7px 10px 10px 10px;}
