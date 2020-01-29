@@ -78,7 +78,7 @@ img{max-width:100%}
 .float-left{float:left}
 .float-right{float:right}
 .bg-gray{background:#eaf0f6;padding:8px 16px;border-radius:8px;border-top-left-radius:0;color:#425b76;display:block;font-size:14px;font-family:Helvetica,Arial,sans-serif!important;border:1px solid #bfd8f1}
-span.bg-gray{background:0 0;padding:0;border:none}
+span.bg-gray{background:0 0;padding:0;border:none;display: table}
 span.bg-gray p.bg-gray{background:#eaf0f6;padding:8px 16px}
 p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left}
 .bg-gray a{color:#0375bc}

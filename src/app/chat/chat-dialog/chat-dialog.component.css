@@ -42,16 +42,19 @@ input{border:none;margin:0;height:53px;font-size:15px;padding:13px 85px 17px 15p
 input:focus{border:none!important;box-shadow:none!important}
 .chat_error{position:absolute;font-size:13px;left:20px;top:-21px}
 /*time and checkmark*/
-.bubble_tick{background-repeat:no-repeat;bottom:0;height:14px;position:absolute;right:-13px;width:11px}
+.time-check{display: table;position: relative;top: -5px;}
+.message.to .time-check{float: right;top: initial;width: 100%;}
+.bubble_tick{background-repeat: no-repeat;bottom: 0;height: 14px;width: 11px;display: inline-block;position: relative;margin: 0 5px 0 5px;vertical-align: middle;}
+.time{color: #aaa;display: inline-block}
 .bubble_tick .tick1,.bubble_tick .tick2{width:4px;height:10px;border-width:0 1px 1px 0;border-style:solid;border-color:#3498db;display:block;transform:rotate(45deg)}
 .bubble_tick .tick2 {width: 2px;position: absolute;top: 2px;left: 5px;}
 /*slider*/
-.carousel{width:220px;border:1px solid #bfd8f1;border-radius:8px;font-size: 14px;display: table;height: 300px;}
+.carousel{width:220px;border:1px solid #bfd8f1;border-radius:8px;font-size: 14px;display: table;height: 240px;}
 .carousel-control{width:initial;background:initial;bottom:initial;top:50%;transform:translateY(-50%);position: absolute;}
-.carousel-control.left{left:-13px}
-.carousel-control.right{right:-13px}
+.carousel-control.left{left:-28px}
+.carousel-control.right{right:-28px}
 .carousel img{margin: 0 auto;border-top-left-radius: 8px;border-top-right-radius: 8px;}
 .carousel strong{display: block;padding: 10px 10px 0 10px;}
 .carousel .carousel-item a{display: table;width: 100%;background:#eaf0f6;text-align: center;padding: 5px 0;transition: 0.2s all linear;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}
 .carousel .carousel-item a:hover{text-decoration: none;transition: 0.2s all linear;background: #037ac3;color: #fff;}
-.carousel p{margin: 0 !important;padding: 7px 10px 10px 10px;}
+.carousel p{margin: 0 !important;padding: 5px 10px 10px 10px;font-size: 13px;line-height: 18px;}
