@@ -557,3 +557,42 @@ img {
 }
 
 /*# sourceMappingURL=milligram.css.map */
+/*custom changes*/
+.bg-gray {
+	background: rgb(234, 240, 246);
+	padding: 8px 16px;
+  border-radius: 8px;
+  border-top-left-radius: 0px;
+	color: rgb(66, 91, 118);
+  display: block;
+  font-size:14px;
+  font-family: Helvetica,Arial,sans-serif!important;
+}
+span.bg-gray{background:transparent;padding: 0;}
+span.bg-gray p.bg-gray{background: rgb(234, 240, 246);
+	padding: 8px 16px;}
+p {
+  margin:0 8px 8px 0 !important;
+  font-size: 14px;
+  display: inline-block;
+  float: left;
+}
+.bg-gray a{color: #0375bc;}
+.option_selection {
+  border: 1px solid #0275bc;
+  color: #0275bc;
+display: block;
+padding: 8px 16px;
+border-radius: 8px;
+background: #fff;
+min-width: 70px;
+cursor: pointer;
+transition: 0.2s all linear;
+font-size: 13px;
+}
+.option_selection:hover{
+background-color: rgba(2, 117, 188, 0.1);
+transition: 0.2s all linear;
+border: 1px solid #0275bc;
+color: #0275bc;
+}

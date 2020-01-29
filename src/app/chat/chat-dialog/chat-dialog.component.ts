@@ -32,7 +32,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage() {
-    this.isLoading = true;
+
 
     if (this.formValue === undefined) {
       this.isChatError = true;
@@ -46,6 +46,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
         this.formValue.length !== 0 ||
         this.formValue == undefined
       ) {
+        this.isLoading = true;
         if (EmailValidator.validate(this.formValue)) {
           console.log("This is email");
         }
@@ -83,7 +84,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 
   getData(option_selection) {
 	console.log(option_selection);
-	this.showMainContent = this.showMainContent ? true : true;
+	this.showMainContent = true;
     this.formValue = option_selection;
     this.sendMessage();
 }
@@ -91,15 +92,19 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 getDFData(evt) {
 	const option_selection = evt.target.getAttribute("value");
     console.log(option_selection);
-	this.showMainContent = this.showMainContent ? true : true;
-	
+	this.showMainContent = true;
+
     if (option_selection != null) {
       this.formValue = option_selection;
       this.sendMessage();
     }
   }
-  
+  getTextData(option_selection) {
+		this.showMainContent = true;
+		this.formValue = option_selection;
+		this.sendMessage();
+	}
   reset_data() {
-    this.showMainContent = this.showMainContent ? false : true;
+    this.showMainContent = false;
   }
 }
