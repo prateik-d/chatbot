@@ -45,7 +45,7 @@ input:focus{border:none!important;box-shadow:none!important}
 .time-check{display: table;position: relative;top: -5px;}
 .message.to .time-check{float: right;top: initial;width: 100%;}
 .bubble_tick{background-repeat: no-repeat;bottom: 0;height: 14px;width: 11px;display: inline-block;position: relative;margin: 0 5px 0 5px;vertical-align: middle;}
-.time{color: #aaa;display: inline-block}
+.time{color: #aaa;display: inline-block;font-size: 12px;}
 .bubble_tick .tick1,.bubble_tick .tick2{width:4px;height:10px;border-width:0 1px 1px 0;border-style:solid;border-color:#3498db;display:block;transform:rotate(45deg)}
 .bubble_tick .tick2 {width: 2px;position: absolute;top: 2px;left: 5px;}
 /*slider*/
