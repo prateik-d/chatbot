@@ -1,4 +1,4 @@
-<div class="footer chat_window" style="display: none;">
+<div class="footer chat_window">
  	<div class="bot-company-logo"><div class="circle-bg-white"><img src="assets/chat-icon.png" alt="chat-icon"/></div><strong>QualitasIT</strong></div>
 	<div class="chat-box">
     <div *ngIf="isLoading" class="loader-box"><div class="lds-ring"></div></div>
@@ -29,15 +29,22 @@
 			<div #scrollMe class="" *ngIf="showMainContent">
 				<ng-container *ngFor="let message of messages | async">
 					<div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
+						<!-- {{now | date:'h:mm:ss a'}} -->
 
+           				<div class="qit-logo-msg-from"><img src="assets/chat-icon.png" alt="chat-icon"/></div>
+              			<div class="content">
+							<!-- convert  -->
+							<span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content" id="df_data"></span>
+							<!-- {{now | date:'h:mm:ss a'}} -->
+							<!-- {{ message.content }} -->
+							<div>
+								<span class="time">{{ message.time | date:'h:mm:ss:a' }}</span>
+								<!-- <span class="tick"></span> -->
+								<span class="bubble_tick"><span class="tick1"></span><span class="tick2"></span></span>
+							</div>
 
-            <div class="qit-logo-msg-from"><img src="assets/chat-icon.png" alt="chat-icon"/></div>
-              <div class="content">
-              <!-- convert  -->
-              <span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content" id="df_data"></span>
-              <!-- {{ message.content }} -->
-            </div>
-            <div class="user-logo-msg-from"><img src="assets/user-icon.jpg" alt="chat-icon"/></div>
+            			</div>
+            			<div class="user-logo-msg-from"><img src="assets/user-icon.jpg" alt="chat-icon"/></div>
 					</div>
 				</ng-container>
 			</div>

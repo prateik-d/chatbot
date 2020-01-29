@@ -18,12 +18,17 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   isOpened = false;
   isLoading = false;
   showMainContent: Boolean = true;
+  now: Date;
 
   @ViewChild("scrollMe", { static: true })
   private myScrollContainer: ElementRef;
   router: any;
 
-  constructor(public chat: ChatService, private elementref: ElementRef) {}
+  constructor(public chat: ChatService, private elementref: ElementRef) {
+	  	// setInterval(() => {
+		// 	this.now = new Date();
+		// }, 1);
+  }
 
   ngOnInit() {
     this.messages = this.chat.conversation
@@ -32,8 +37,6 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage() {
-
-
     if (this.formValue === undefined) {
       this.isChatError = true;
       return;
@@ -50,7 +53,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
         if (EmailValidator.validate(this.formValue)) {
           console.log("This is email");
         }
-        this.chat.converse(this.formValue);
+		this.chat.converse(this.formValue);
         this.formValue = "";
         this.isChatError = false;
         this.isOpened = true;
@@ -83,16 +86,17 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   }
 
   getData(option_selection) {
-	console.log(option_selection);
-	this.showMainContent = true;
+	  this.now = new Date;
+    console.log(option_selection);
+    this.showMainContent = true;
     this.formValue = option_selection;
     this.sendMessage();
-}
+  }
 
-getDFData(evt) {
-	const option_selection = evt.target.getAttribute("value");
+  getDFData(evt) {
+    const option_selection = evt.target.getAttribute("value");
     console.log(option_selection);
-	this.showMainContent = true;
+    this.showMainContent = true;
 
     if (option_selection != null) {
       this.formValue = option_selection;
@@ -100,10 +104,10 @@ getDFData(evt) {
     }
   }
   getTextData(option_selection) {
-		this.showMainContent = true;
-		this.formValue = option_selection;
-		this.sendMessage();
-	}
+    this.showMainContent = true;
+    this.formValue = option_selection;
+    this.sendMessage();
+  }
   reset_data() {
     this.showMainContent = false;
   }

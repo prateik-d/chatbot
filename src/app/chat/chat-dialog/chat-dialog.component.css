@@ -220,3 +220,29 @@ input:focus{    border: none !important;
   font-size: 13px;
   left: 20px;
   top: -21px;}
+
+
+.bubble_tick {
+    background-repeat: no-repeat;
+    bottom: 0px;
+    height: 14px;
+    position: absolute;
+    right: -13px;
+    width: 11px;
+}
+.bubble_tick .tick1, .bubble_tick .tick2 {
+    width: 4px;
+    height: 10px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: rgb(52, 152, 219);
+    display: block;
+    transform: rotate(45deg);
+}
+
+.bubble_tick .tick2 {
+    width: 2px;
+    position: absolute;
+    top: 2px;
+    left: 5px;
+}
