@@ -41,6 +41,11 @@ input[type=text]:focus{border-color:#2ca3dd}
 input{border:none;margin:0;height:53px;font-size:15px;padding:13px 85px 17px 15px;color:#333}
 input:focus{border:none!important;box-shadow:none!important}
 .chat_error{position:absolute;font-size:13px;left:20px;top:-21px}
+/*time and checkmark*/
+.bubble_tick{background-repeat:no-repeat;bottom:0;height:14px;position:absolute;right:-13px;width:11px}
+.bubble_tick .tick1,.bubble_tick .tick2{width:4px;height:10px;border-width:0 1px 1px 0;border-style:solid;border-color:#3498db;display:block;transform:rotate(45deg)}
+.bubble_tick .tick2 {width: 2px;position: absolute;top: 2px;left: 5px;}
+/*slider*/
 .carousel{width:220px;border:1px solid #bfd8f1;border-radius:8px;font-size: 14px;display: table;height: 300px;}
 .carousel-control{width:initial;background:initial;bottom:initial;top:50%;transform:translateY(-50%);position: absolute;}
 .carousel-control.left{left:-13px}
