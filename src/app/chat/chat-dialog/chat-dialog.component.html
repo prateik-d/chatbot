@@ -7,15 +7,9 @@
       </div>
     </div>
   <div class="chat-box">
-<<<<<<< HEAD
      <!--<div *ngIf="isLoading" class="loader-box">
         <div class="lds-ring"></div>
      </div>-->
-=======
-     <!-- <div *ngIf="isLoading" class="loader-box">
-        <div class="lds-ring"></div>
-     </div> -->
->>>>>>> 3904276679a3ed8645810ab305e288916704d1e3
      <div class="msg-scroll">
         <div class="message from">
            <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
@@ -75,15 +69,15 @@
 					<small class="time">{{ now | date:'h:mm:ss:a' }}</small>
 				</div>
 			</div>
-			
-								
+
+
         </div>
      </div>
      <div class="msg-scroll">
         <div #scrollMe class="" *ngIf="showMainContent">
            <ng-container *ngFor="let message of messages | async">
 			  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
-				
+
                  <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
 				 <!-- <div class="ball-pulse-sync">
 					 <div></div>
