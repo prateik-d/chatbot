@@ -82,11 +82,11 @@ span.bg-gray{background:0 0;padding:0;border:none;display: table}
 span.bg-gray p.bg-gray{background:#eaf0f6;padding:8px 16px}
 p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left}
 .bg-gray a{color:#0375bc}
-.option_selection{border:1px solid #0275bc;color:#0275bc;display:block;padding:8px 16px;border-radius:8px;background:#fff;min-width:70px;cursor:pointer;transition:.2s all linear;font-size:13px}
+.option_selection{border:1px solid #0275bc;color:#0275bc;display:block;padding:8px 16px;border-radius:8px;background:#fff;cursor:pointer;transition:.2s all linear;font-size:13px}
 .option_selection:hover{background-color:rgba(2,117,188,.1);transition:.2s all linear;border:1px solid #0275bc;color:#0275bc;text-decoration: none;}
 /*slider*/
 .carousel{width:220px;border:1px solid #bfd8f1;border-radius:8px;font-size: 14px;display: table;height: 240px;white-space: initial !important;}
-.carousel-control{width:initial;background:initial;bottom:initial;top:50%;transform:translateY(-50%);position: absolute;}
+.carousel-control{width:initial;background:transparent !important;bottom:initial;top:50%;transform:translateY(-50%);position: absolute;}
 .carousel-control.left{left:-28px}
 .carousel-control.right{right:-28px}
 .carousel img{margin: 0 auto;border-top-left-radius: 8px;border-top-right-radius: 8px;}

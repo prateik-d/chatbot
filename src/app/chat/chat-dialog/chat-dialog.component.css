@@ -4,7 +4,7 @@
 .message.to{color:#fff;text-align:right;display:table;width:100%;margin-bottom:10px}
 .message.to .qit-logo-msg-from{display:none}
 .message.from .user-logo-msg-from{display:none}
-.loader-box{position:fixed;bottom:37%;right:14%;display:table;background:#fff;box-shadow:0 0 10px #ccc;width:60px;height:60px;z-index:999999999}
+.loader-box{position:fixed;bottom:37%;right:14%;display:table;background:#fff;box-shadow:0 0 10px #ccc;width:60px;height:60px;z-index:999999999;border-radius:50%}
 .lds-ring{position:fixed;display:block;width:40px;height:40px;border:3px solid #0275bc;border-radius:50%;animation:lds-ring 1.2s linear infinite;border-color:#0275bc transparent transparent transparent;right:14.5%;bottom:38.2%}
 .lds-ring div:nth-child(1){animation-delay:-.45s}
 @keyframes lds-ring{0%{transform:rotate(0)}
@@ -13,9 +13,9 @@
 .message.to span{background-color:#0275bc;border-radius:8px;border-top-right-radius:0;padding:8px 16px;color:#fff;display:table;float:right}
 .message.from+.message.from,.message.to+.message.to{margin-top:-10px}
 .header{text-align:center;font-size:3rem}
-.qit-logo-msg-from{display:inline-block;width:30px;height:30px;margin-right:10px;border:2px solid #2588c5;border-radius:50%;padding:4px}
-.user-logo-msg-from{display:inline-block;width:30px;height:30px;margin:3px 0 0 10px;border:2px solid #0476bd;border-radius:50%}
-.qit-logo-msg-from img,.user-logo-msg-from img{border-radius:50%}
+.qit-logo-msg-from{display:inline-block;width:30px;height:30px;margin-right:10px;background:linear-gradient(45deg,#0275bc,#0695ec);border-radius:50%;padding:4px}
+.user-logo-msg-from{display:inline-block;width:30px;height:30px;margin:3px 0 0 10px;border-radius:50%}
+.qit-logo-msg-from img,.user-logo-msg-from img{border-radius:50%;vertical-align: top;}
 .message.from .content,.message.to .content{display:inline-block;width:85%;vertical-align:top}
 ::-webkit-input-placeholder{font-size:15px;color:#ccc}
 ::-moz-placeholder{font-size:15px;color:#ccc}
@@ -45,6 +45,6 @@ input:focus{border:none!important;box-shadow:none!important}
 .time-check{display: table;position: relative;top: -5px;}
 .message.to .time-check{float: right;top: initial;width: 100%;}
 .bubble_tick{background-repeat: no-repeat;bottom: 0;height: 14px;width: 11px;display: inline-block;position: relative;margin: 0 5px 0 5px;vertical-align: middle;}
-.time{color: #aaa;display: inline-block;font-size: 12px;}
+.time{color: #aaa;display: inline-block;font-size: 12px;padding: 0;}
 .bubble_tick .tick1,.bubble_tick .tick2{width:4px;height:10px;border-width:0 1px 1px 0;border-style:solid;border-color:#3498db;display:block;transform:rotate(45deg)}
 .bubble_tick .tick2 {width: 2px;position: absolute;top: 2px;left: 5px;}

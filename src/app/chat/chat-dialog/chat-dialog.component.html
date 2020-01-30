@@ -1,4 +1,4 @@
-<div class="footer chat_window">
+<div class="footer chat_window" style="display: none;">
   <div class="bot-company-logo">
      <div class="circle-bg-white"><img src="assets/img/chat-icon.png" alt="chat-icon"/></div>
      <strong>QualitasIT</strong>
@@ -9,21 +9,20 @@
      </div>
      <div class="msg-scroll">
         <div class="message from">
-           <div class="qit-logo-msg-from"><img src="assets/img/chat-icon.png" alt="chat-icon"/></div>
+           <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
            <div class="content">
               <p class="bg-gray">Hi there! Its great to see you here. I'm Qbot - a chatbot for Qualitas IT.</p>
               <p class="bg-gray">I am here to help you understand what all products, solutions and services we offer.</p>
               <p class="bg-gray">So now that you are here, what are you looking for?</p>
-              <p><a class="option_selection" (click)="getData('Mobile App development')">Mobile App development</a>
+              <p><a class="option_selection" (click)="getData('Mobile App development')">Mobile App</a>
               </p>
-              <p><a class="option_selection" (click)="getData('HRMS system')">HRMS system</a></p>
-              <p><a class="option_selection" (click)="getData('E-Learning system')">E-Learning system</a></p>
-              <p><a class="option_selection" (click)="getData('Programmers/Developers')">Programmers/Developers</a>
+              <p><a class="option_selection" (click)="getData('HRMS system')">HRMS</a></p>
+              <p><a class="option_selection" (click)="getData('E-Learning system')">LMS</a></p>
+              <p><a class="option_selection" (click)="getData('Programmers/Developers')">Developers</a>
               </p>
-              <p><a class="option_selection" (click)="getData('Web & Graphics designing')">Web & Graphics
-                 designing</a>
+              <p><a class="option_selection" (click)="getData('Web & Graphics designing')">Designing</a>
               </p>
-              <p><a class="option_selection" (click)="getData('Wordpress customisation')">Wordpress customisation</a>
+              <p><a class="option_selection" (click)="getData('Wordpress customisation')">Wordpress</a>
               </p>
               <p><a class="option_selection" (click)="getData('About our Company')">About our Company</a></p>
               <p><a class="option_selection" (click)="getData('Job Openings')">Job Openings</a></p>
@@ -45,7 +44,7 @@
                     <div class="item">
                        <img src="assets/img/3.jpg" alt="New york">
                        <strong>Time Out</strong>
-                       <p>Lorem ipsum dolor sit amet, quam rutrum, eget dapibus aliquam proin is sed praesent velit.</p>
+                       <p>Lorem ipsum dolor sit amet, quam rutrum, eget dapibus aliquam proin is sed velit.</p>
                        <a href="##">Learn More</a>
                     </div>
                     <div class="item">
@@ -70,7 +69,7 @@
            <ng-container *ngFor="let message of messages | async">
               <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
                  <!-- {{now | date:'h:mm:ss a'}} -->
-                 <div class="qit-logo-msg-from"><img src="assets/img/chat-icon.png" alt="chat-icon"/></div>
+                 <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
                  <div class="content">
                     <!-- convert  -->
                     <span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content" id="df_data"></span>
@@ -79,7 +78,7 @@
                        <small class="time">{{ message.time | date:'h:mm:ss:a' }}</small>
                     </div>
                  </div>
-                 <div class="user-logo-msg-from"><img src="assets/img/user-icon.jpg" alt="chat-icon"/></div>
+                 <div class="user-logo-msg-from"><img src="assets/img/user-icon.png" alt="chat-icon"/></div>
               </div>
            </ng-container>
         </div>
