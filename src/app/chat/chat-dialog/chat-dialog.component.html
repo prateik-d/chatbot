@@ -7,9 +7,15 @@
       </div>
     </div>
   <div class="chat-box">
+<<<<<<< HEAD
      <!--<div *ngIf="isLoading" class="loader-box">
         <div class="lds-ring"></div>
      </div>-->
+=======
+     <!-- <div *ngIf="isLoading" class="loader-box">
+        <div class="lds-ring"></div>
+     </div> -->
+>>>>>>> 3904276679a3ed8645810ab305e288916704d1e3
      <div class="msg-scroll">
         <div class="message from">
            <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
@@ -30,7 +36,7 @@
               <p><a class="option_selection" (click)="getData('About our Company')">About our Company</a></p>
               <p><a class="option_selection" (click)="getData('Job Openings')">Job Openings</a></p>
               <p><a class="option_selection" (click)="getData('None of these')">None of these</a></p>
-              <div id="aaa" class="carousel slide" data-ride="carousel">
+              <!-- <div id="aaa" class="carousel slide" data-ride="carousel">
                  <div class="carousel-inner">
                     <div class="item active">
                        <img src="assets/img/1.jpg" alt="Los Angeles">
@@ -63,18 +69,29 @@
                  <a class="right carousel-control" href="#aaa" data-slide="next">
                  <img src="assets/img/angle-right.png" />
                  </a>
-              </div>
-           </div>
+			  </div> -->
+				<div class="time-check">
+					<small class="bubble_tick"><small class="tick1"></small><small class="tick2"></small></small>
+					<small class="time">{{ now | date:'h:mm:ss:a' }}</small>
+				</div>
+			</div>
+			
+								
         </div>
      </div>
      <div class="msg-scroll">
         <div #scrollMe class="" *ngIf="showMainContent">
            <ng-container *ngFor="let message of messages | async">
-              <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
-                 <!-- {{now | date:'h:mm:ss a'}} -->
+			  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
+				
                  <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
+				 <!-- <div class="ball-pulse-sync">
+					 <div></div>
+					 <div></div>
+					 <div></div>
+				 </div> -->
                  <div class="content">
-                    <!-- convert  -->
+					<!-- convert  -->
                     <span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content" id="df_data"></span>
                     <div class="time-check">
                        <small class="bubble_tick"><small class="tick1"></small><small class="tick2"></small></small>
@@ -90,6 +107,7 @@
   </div>
   <div class="input-btns">
      <div *ngIf="isChatError" class="chat_error">Please enter a valid message.</div>
+     <div *ngIf="isLoading" class="" style="background: #fff;">Typing...</div>
      <input [(ngModel)]="formValue" placeholder="Write a message" (keyup.enter)="getTextData(formValue)" type="text" required>
      <button class="btn-refresh" (click)="reset_data()"><img src="assets/img/refresh.png" /></button>
      <button class="btn-send" (click)="getTextData(formValue)" [disabled]="!formValue"><img src="assets/img/send.png" /></button>
