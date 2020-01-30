@@ -1,15 +1,25 @@
 .chat-box{display:block;width:100%;position:relative;overflow-y:scroll;max-height:410px;top:0;padding:15px}
+.chat-text-right{display: inline-block;vertical-align: top;}
 .spacer-white{position:absolute;left:0;top:0;height:20px;background:#fff;width:100%;z-index:9}
 .message.from{margin-bottom:10px}
 .message.to{color:#fff;text-align:right;display:table;width:100%;margin-bottom:10px}
 .message.to .qit-logo-msg-from{display:none}
 .message.from .user-logo-msg-from{display:none}
-.loader-box{position:fixed;bottom:37%;right:14%;display:table;background:#fff;box-shadow:0 0 10px #ccc;width:60px;height:60px;z-index:999999999;border-radius:50%}
+.animate{display: inline-block;line-height: normal;vertical-align: bottom;margin-left: 3px;}
+.loader{font-size: 13px;}
+.loader>span{display: inline-block;}
+.text_1{animation:text1}
+.text_2{animation:text2}.text_1,.text_2{overflow:hidden;white-space:nowrap;display:inline-block;position:relative;animation-duration:4s;animation-timing-function:steps(3,end);animation-iteration-count:infinite}
+.text_1::after,.text_2::after{content:"";position:absolute;right:0;animation:caret infinite;animation-duration:1s;animation-timing-function:steps(1,end)}
+@keyframes text2{0%,50%,100%{width:0}60%,90%{width:20px}}
+@keyframes text1{0%,50%,100%{width:0}10%,40%{width:20px}}
+@keyframes caret{0%,100%{opacity:0}50%{opacity:1}}
+/*.loader-box{position:fixed;bottom:37%;right:14%;display:table;background:#fff;box-shadow:0 0 10px #ccc;width:60px;height:60px;z-index:999999999;border-radius:50%}
 .lds-ring{position:fixed;display:block;width:40px;height:40px;border:3px solid #0275bc;border-radius:50%;animation:lds-ring 1.2s linear infinite;border-color:#0275bc transparent transparent transparent;right:14.5%;bottom:38.2%}
 .lds-ring div:nth-child(1){animation-delay:-.45s}
 @keyframes lds-ring{0%{transform:rotate(0)}
 100%{transform:rotate(360deg)}
-}
+}*/
 .message.to span{background-color:#0275bc;border-radius:8px;border-top-right-radius:0;padding:8px 16px;color:#fff;display:table;float:right}
 .message.from+.message.from,.message.to+.message.to{margin-top:-10px}
 .header{text-align:center;font-size:3rem}

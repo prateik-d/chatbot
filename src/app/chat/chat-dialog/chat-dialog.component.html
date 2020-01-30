@@ -1,12 +1,15 @@
 <div class="footer chat_window">
   <div class="bot-company-logo">
      <div class="circle-bg-white"><img src="assets/img/chat-icon.png" alt="chat-icon"/></div>
-     <strong>QualitasIT</strong>
-  </div>
+     <div class="chat-text-right">
+       <strong>QualitasIT</strong>
+       <div *ngIf="isLoading" class="loader"><span>Typing</span><div class="animate"><span class="text_1">....</span><span class="text_2">....</span></div></div>
+      </div>
+    </div>
   <div class="chat-box">
-     <div *ngIf="isLoading" class="loader-box">
+     <!--<div *ngIf="isLoading" class="loader-box">
         <div class="lds-ring"></div>
-     </div>
+     </div>-->
      <div class="msg-scroll">
         <div class="message from">
            <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
