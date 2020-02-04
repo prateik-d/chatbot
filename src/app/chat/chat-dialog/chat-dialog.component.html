@@ -1,15 +1,26 @@
 <div class="footer chat_window">
-  <div class="bot-company-logo">
-     <div class="circle-bg-white"><img src="assets/img/chat-icon.png" alt="chat-icon"/></div>
-     <div class="chat-text-right">
-       <strong>QualitasIT</strong>
-       <div *ngIf="isLoading" class="loader"><span>Typing</span><div class="animate"><span class="text_1">....</span><span class="text_2">....</span></div></div>
+   <div class="bot-company-logo">
+      <div class="circle-bg-white"><img src="assets/img/chat-icon.png" alt="chat-icon"/></div>
+      <div *ngIf="isLoading; else notTyping" class="loader">
+         <strong class="d-flex">QualitasIT</strong>
+         <span>Typing</span>
+         <div class="animate">
+            <span class="text_1">....</span>
+            <span class="text_2">....</span>
+         </div>
       </div>
-    </div>
+   
+      <ng-template #notTyping>
+         <strong class="">QualitasIT</strong>
+      </ng-template>
+      
+      <!-- <strong>QualitasIT</strong> -->
+   </div>
+   
   <div class="chat-box">
-     <!--<div *ngIf="isLoading" class="loader-box">
+     <!-- <div *ngIf="isLoading" class="loader-box">
         <div class="lds-ring"></div>
-     </div>-->
+     </div> -->
      <div class="msg-scroll">
         <div class="message from">
            <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
@@ -30,66 +41,29 @@
               <p><a class="option_selection" (click)="getData('About our Company')">About our Company</a></p>
               <p><a class="option_selection" (click)="getData('Job Openings')">Job Openings</a></p>
               <p><a class="option_selection" (click)="getData('None of these')">None of these</a></p>
-              <!-- <div id="aaa" class="carousel slide" data-ride="carousel">
-                 <div class="carousel-inner">
-                    <div class="item active">
-                       <img src="assets/img/1.jpg" alt="Los Angeles">
-                       <strong>CWS</strong>
-                       <p>Lorem ipsum dolor sit amet, quam rutrum, urna nec ultrices wisi vitae.</p>
-                       <a href="##">Learn More</a>
-                    </div>
-                    <div class="item">
-                       <img src="assets/img/2.jpg" alt="Chicago">
-                       <strong>P.A. Plus</strong>
-                       <p>Lorem ipsum dolor sit amet, quam rutrum, eget dapibus fla orci sit ut eleifend. Nec justo  velit.</p>
-                       <a href="##">Learn More</a>
-                    </div>
-                    <div class="item">
-                       <img src="assets/img/3.jpg" alt="New york">
-                       <strong>Time Out</strong>
-                       <p>Lorem ipsum dolor sit amet, quam rutrum, eget dapibus aliquam proin is sed velit.</p>
-                       <a href="##">Learn More</a>
-                    </div>
-                    <div class="item">
-                       <img src="assets/img/1.jpg" alt="New york">
-                       <strong>Talent Comp</strong>
-                       <p>Lorem ipsum dolor sit amet, pellentesque, id urna ciis sed praesent velit.</p>
-                       <a href="##">Learn More</a>
-                    </div>
-                 </div>
-                 <a class="left carousel-control" href="#aaa" data-slide="prev">
-                 <img src="assets/img/angle-left.png" />
-                 </a>
-                 <a class="right carousel-control" href="#aaa" data-slide="next">
-                 <img src="assets/img/angle-right.png" />
-                 </a>
-			  </div> -->
-				<div class="time-check">
-					<small class="bubble_tick"><small class="tick1"></small><small class="tick2"></small></small>
-					<small class="time">{{ now | date:'h:mm:ss:a' }}</small>
-				</div>
-			</div>
-
-
+              
+               <div class="time-check">
+                  <small class="bubble_tick"><small class="tick1"></small><small class="tick2"></small></small>
+                  <small class="time">{{ now | date:'h:mm:a' }}</small>
+               </div>
+            </div>
+            
+                                
         </div>
      </div>
      <div class="msg-scroll">
         <div #scrollMe class="" *ngIf="showMainContent">
            <ng-container *ngFor="let message of messages | async">
-			  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
-
+              <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
+                
                  <div class="qit-logo-msg-from"><img src="assets/img/bot.png" alt="chat-icon"/></div>
-				 <!-- <div class="ball-pulse-sync">
-					 <div></div>
-					 <div></div>
-					 <div></div>
-				 </div> -->
+                
                  <div class="content">
-					<!-- convert  -->
-                    <span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content" id="df_data"></span>
+                    <!-- convert  -->
+                    <span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content | safeHtml" id="df_data"></span>
                     <div class="time-check">
                        <small class="bubble_tick"><small class="tick1"></small><small class="tick2"></small></small>
-                       <small class="time">{{ message.time | date:'h:mm:ss:a' }}</small>
+                       <small class="time">{{ message.time | date:'h:mm:a' }}</small>
                     </div>
                  </div>
                  <div class="user-logo-msg-from"><img src="assets/img/user-icon.png" alt="chat-icon"/></div>
@@ -101,7 +75,7 @@
   </div>
   <div class="input-btns">
      <div *ngIf="isChatError" class="chat_error">Please enter a valid message.</div>
-     <div *ngIf="isLoading" class="" style="background: #fff;">Typing...</div>
+     <!-- <div *ngIf="isLoading" class="" style="background: #fff;">Typing...</div> -->
      <input [(ngModel)]="formValue" placeholder="Write a message" (keyup.enter)="getTextData(formValue)" type="text" required>
      <button class="btn-refresh" (click)="reset_data()"><img src="assets/img/refresh.png" /></button>
      <button class="btn-send" (click)="getTextData(formValue)" [disabled]="!formValue"><img src="assets/img/send.png" /></button>
