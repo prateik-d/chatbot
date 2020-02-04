@@ -80,10 +80,11 @@ img{max-width:100%}
 .bg-gray{background:#eaf0f6;padding:8px 16px;border-radius:8px;border-top-left-radius:0;color:#425b76;display:block;font-size:14px;font-family:Helvetica,Arial,sans-serif!important;border:1px solid #bfd8f1}
 span.bg-gray{background:0 0;padding:0;border:none;display: table}
 span.bg-gray p.bg-gray{background:#eaf0f6;padding:8px 16px}
-p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left}
+p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left;}
 .bg-gray a{color:#0375bc}
 .option_selection{border:1px solid #0275bc;color:#0275bc;display:block;padding:8px 16px;border-radius:8px;background:#fff;cursor:pointer;transition:.2s all linear;font-size:13px}
 .option_selection:hover{background-color:rgba(2,117,188,.1);transition:.2s all linear;border:1px solid #0275bc;color:#0275bc;text-decoration: none;}
+
 /*slider*/
 .carousel{width:220px;border:1px solid #bfd8f1;border-radius:8px;font-size: 14px;display: table;height: 240px;white-space: initial !important;}
 .carousel-control{width:initial;background:transparent !important;bottom:initial;top:50%;transform:translateY(-50%);position: absolute;}
@@ -94,3 +95,36 @@ p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left}
 .carousel .item a{display: table;width: 100%;background:#eaf0f6;text-align: center;padding: 5px 0;transition: 0.2s all linear;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}
 .carousel .item a:hover{text-decoration: none;transition: 0.2s all linear;background: #037ac3;color: #fff;}
 .carousel p{margin: 0 !important;padding: 5px 10px 10px 10px;font-size: 13px;line-height: 18px;}
+/* slider */
+
+/* loader */
+.animate{display: inline-block;line-height: normal;vertical-align: bottom;margin-left: 3px;}
+.loader{
+    /* font-size: 14px;
+    position: fixed;
+    bottom: 154px;
+    padding: 30px 15px 7px 15px;
+    background: linear-gradient(360deg, white 45%, transparent);
+    width: 360px;
+    color: #000; */
+
+    /* font-size: 14px; */
+    /* position: fixed; */
+    /* bottom: 154px; */
+    /* padding: 30px 15px 7px 15px; */
+    /* background: -webkit-gradient(linear, left bottom, left top, color-stop(45%, white), to(transparent)); */
+    /* background: #1587d7; */
+    /* color: #000; */
+    display: inline-block;
+    vertical-align: top;
+    float: initial;
+    width: 275px;
+  }
+.loader>span{display: inline-block;font-size: 15px; line-height: normal;}
+.text_1{animation:text1}
+.text_2{animation:text2}.text_1,.text_2{overflow:hidden;white-space:nowrap;display:inline-block;position:relative;animation-duration:4s;animation-timing-function:steps(3,end);animation-iteration-count:infinite}
+.text_1::after,.text_2::after{content:"";position:absolute;right:0;animation:caret infinite;animation-duration:1s;animation-timing-function:steps(1,end)}
+@keyframes text2{0%,50%,100%{width:0}60%,90%{width:20px}}
+@keyframes text1{0%,50%,100%{width:0}10%,40%{width:20px}}
+@keyframes caret{0%,100%{opacity:0}50%{opacity:1}}
+/* loader */

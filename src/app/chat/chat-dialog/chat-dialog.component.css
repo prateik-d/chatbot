@@ -28,7 +28,16 @@ button{background-color:#2ca3dd;border:.1rem solid #3b7b9b;color:#fff}
 button[disabled]:hover{background-color:#4ea1ca;border-color:#4ea1ca}
 input[type=text]:focus{border-color:#2ca3dd}
 .bot-company-logo{background:linear-gradient(45deg,#0275bc,#0695ec);border-top-left-radius:8px;border-top-right-radius:8px;padding:10px 15px;color:#fff}
-.circle-bg-white{width:40px;height:40px;background:#fff;padding:5px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:10px}
+.circle-bg-white{
+    width:40px;
+    height:40px;
+    background:#fff;
+    padding:5px;
+    border-radius:50%;
+    display:inline-block;
+    /* vertical-align:text-top; */
+    margin-right:10px
+}
 .chat_window{box-shadow:0 5px 20px rgba(0,0,0,.1);border-radius:8px;width:376px;min-height:530px;right:100px;bottom:100px;position:fixed;display:block;z-index:99999999;background:#fff}
 #target{display:table;height:1px;width:100%}
 .input-btns{position:absolute;bottom:0;width:100%;left:0;border-top:1px solid #ddd}
@@ -38,7 +47,7 @@ input[type=text]:focus{border-color:#2ca3dd}
 .btn-send{top:5px;right:17px}
 .btn-send:hover{background:0 0;background-color:transparent!important}
 .btn-refresh:focus,.btn-refresh:hover,.btn-send :focus,.btn-send:hover{box-shadow:none!important}
-input{border:none;margin:0;height:53px;font-size:15px;padding:13px 85px 17px 15px;color:#333}
+input{border:none;margin:0;height:50px;font-size:15px;padding:13px 85px 17px 15px;color:#333}
 input:focus{border:none!important;box-shadow:none!important}
 .chat_error{position:absolute;font-size:13px;left:20px;top:-21px}
 /*time and checkmark*/
@@ -50,3 +59,5 @@ input:focus{border:none!important;box-shadow:none!important}
 .bubble_tick .tick2 {width: 2px;position: absolute;top: 2px;left: 5px;}
 
 .message.to .content .ball-pulse-sync{display: none;}
+.d-flex{display: flex;}
+.vertical-align-top{vertical-align: top;}
