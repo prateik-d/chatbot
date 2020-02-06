@@ -98,23 +98,9 @@ p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left;}
 /* slider */
 
 /* loader */
+
 .animate{display: inline-block;line-height: normal;vertical-align: bottom;margin-left: 3px;}
 .loader{
-    /* font-size: 14px;
-    position: fixed;
-    bottom: 154px;
-    padding: 30px 15px 7px 15px;
-    background: linear-gradient(360deg, white 45%, transparent);
-    width: 360px;
-    color: #000; */
-
-    /* font-size: 14px; */
-    /* position: fixed; */
-    /* bottom: 154px; */
-    /* padding: 30px 15px 7px 15px; */
-    /* background: -webkit-gradient(linear, left bottom, left top, color-stop(45%, white), to(transparent)); */
-    /* background: #1587d7; */
-    /* color: #000; */
     display: inline-block;
     vertical-align: top;
     float: initial;
@@ -127,4 +113,10 @@ p{margin:0 8px 8px 0!important;font-size:14px;display:inline-block;float:left;}
 @keyframes text2{0%,50%,100%{width:0}60%,90%{width:20px}}
 @keyframes text1{0%,50%,100%{width:0}10%,40%{width:20px}}
 @keyframes caret{0%,100%{opacity:0}50%{opacity:1}}
+
 /* loader */
+
+/* auto-message */
+.is_inactive{display: none!important;}
+#custom-data{background: white;height: 40px;}
+/* auto-message */

@@ -1,10 +1,14 @@
-import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild, HostListener } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import { ChatService, Message } from '../chat.service';
 import { Observable } from 'rxjs';
+import { interval, Subject } from 'rxjs';
 // import 'rxjs/add/operator/scan';
 import { scan } from 'rxjs/operators';
 
 import * as EmailValidator from 'email-validator';
+
+
 
 @Component({
 	selector: "app-chat-dialog",
@@ -19,12 +23,25 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 	isLoading = false;
 	showMainContent: Boolean = true;
 	now: Date = new Date();
+	isInActive = false;
 
 	@ViewChild("scrollMe", { static: true })
 	private myScrollContainer: ElementRef;
 	router: any;
 
-	constructor(public chat: ChatService, private elementref: ElementRef) {}
+	userActivity:any;
+	userInactive: Subject<any> = new Subject();
+	  
+
+ 
+	constructor(public chat: ChatService) {
+		
+			this.setTimeout();
+			this.userInactive.subscribe(() =>
+				this.autoTimeMessage('inactive')
+			);
+			
+	}
 
 	ngOnInit() {
 		
@@ -113,6 +130,57 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 		this.sendMessage();
 	}
 	reset_data() {
+		
+		// interval(100 * 60).subscribe(x => {
+		// 	this.autoTimeMessage('inactive');
+		// });
+
+		// setTimeout(
+		// 	function () {
+		// 		this.autoTimeMessage('inactive');
+		// 	}.bind(this),
+		// 	1000
+		// );
+		
 		this.showMainContent = false;
+		interval(5000).subscribe(x => {
+			this.showMainContent = true;
+			// this.autoTimeMessage('inactive');
+		});
+
+	}
+
+	setTimeout() {
+		this.userActivity = setTimeout(() => {
+			// this.isActive = true ? false : false ? true;
+
+			this.userInactive.next(undefined);
+			// console.log('logged out');
+		}, 5000);
+	  }
+
+	@HostListener("window:mousemove") 
+	@HostListener("window:keypress") 
+		
+	refreshUserState() {
+		clearTimeout(this.userActivity);
+		// this.isInActive = false;
+		// console.log(this.isInActive)
+		this.setTimeout();
+	}
+
+	autoTimeMessage(option_selection)
+	{
+
+		this.showMainContent = false;
+		// interval(10).subscribe(x => {
+			this.showMainContent = true;
+			// this.autoTimeMessage('inactive');
+			
+			this.formValue = option_selection;
+			
+			this.sendMessage();
+			console.log(this.isInActive);		
+		// });
 	}
 }

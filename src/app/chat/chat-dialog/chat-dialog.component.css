@@ -61,7 +61,7 @@ input{border:none;margin:0;height:50px;font-size:15px;padding:13px 85px 17px 15p
 input:focus{border:none!important;box-shadow:none!important}
 .chat_error{position:absolute;font-size:13px;left:20px;top:-21px}
 /*time and checkmark*/
-.time-check{display: table;position: relative;top: -5px;}
+.time-check{display: table;position: relative;top: -5px;float: left;}
 .message.to .time-check{float: right;top: initial;width: 100%;}
 .bubble_tick{background-repeat: no-repeat;bottom: 0;height: 14px;width: 11px;display: inline-block;position: relative;margin: 0 5px 0 5px;vertical-align: middle;}
 .time{color: #aaa;display: inline-block;font-size: 12px;padding: 0;}
