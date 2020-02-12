@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild, HostListener } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClientModule }    from '@angular/common/http';
 import { ChatService, Message } from '../chat.service';
+import{ CustomTextService } from '../custom-text.service'
+// import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { interval, Subject } from 'rxjs';
 // import 'rxjs/add/operator/scan';
@@ -31,10 +33,19 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 
 	userActivity:any;
 	userInactive: Subject<any> = new Subject();
-	  
 
+	error: string;
+	uploadError: string;
+
+	// logForm: FormGroup;
+
+  
  
-	constructor(public chat: ChatService) {
+	constructor(
+					public chat: ChatService, 
+					private customTextS: CustomTextService
+				) 
+	{
 		
 			this.setTimeout();
 			this.userInactive.subscribe(() =>
@@ -114,14 +125,70 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 		this.sendMessage();
 	}
 
+	customText(aaa) {
+		var custom_text = ((document.getElementById("custom-data") as HTMLInputElement).value);
+		
+		// get time and compare*
+
+		if(custom_text === undefined || custom_text === '' )
+		{
+			console.log('Not added');
+		}
+		else
+		{
+
+			const formData = new FormData();
+
+			const logs = {
+				logs: custom_text
+			}
+
+			formData.append('logs', custom_text);
+
+			// console.log(logs);
+			// this.customTextS.saveCustomText(logs).subscribe(
+			this.customTextS.saveCustomText(formData).subscribe(
+				res => {
+					console.log(res);
+					// return;
+				//   if (res.status === 'error') {
+				// 	// this.uploadError = res.message;
+				// 	console.log(res.message);
+				//   } else {
+				// 	// this.router.navigate(['/admin/blogs']);
+				// 	console.log('data added');
+				//   }
+				},
+				error => this.error = error
+			  );
+
+			// this.customTextS.saveCustomText(custom_text);
+			// console.log(custom_text);
+			
+		}
+	}
+
 	getDFData(evt) {
 		const option_selection = evt.target.getAttribute("value");
+		const span_id = evt.target.getAttribute("id");
 		console.log(option_selection);
-		this.showMainContent = true;
+		// console.log(this.custom_text);
 
-		if (option_selection != null) {
-			this.formValue = option_selection;
-			this.sendMessage();
+		if(span_id === 'custom_text_button')
+		{
+			console.log(span_id);
+			// console.log(angular.element('#username').val());
+			// angular.element(document.getElementById('custom-data')).val();
+			
+		}
+		else
+		{
+			this.showMainContent = true;
+			
+			if (option_selection != null) {
+				this.formValue = option_selection;
+				this.sendMessage();
+			}
 		}
 	}
 	getTextData(option_selection) {
@@ -143,7 +210,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 		// );
 		
 		this.showMainContent = false;
-		interval(5000).subscribe(x => {
+		interval(5000 * 60).subscribe(x => {
 			this.showMainContent = true;
 			// this.autoTimeMessage('inactive');
 		});
@@ -156,7 +223,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 
 			this.userInactive.next(undefined);
 			// console.log('logged out');
-		}, 5000);
+		}, 5000 * 60);
 	  }
 
 	@HostListener("window:mousemove") 
@@ -180,7 +247,8 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 			this.formValue = option_selection;
 			
 			this.sendMessage();
-			console.log(this.isInActive);		
+			// console.log(this.isInActive);		
 		// });
 	}
+
 }

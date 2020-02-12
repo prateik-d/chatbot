@@ -28,8 +28,7 @@
               </p>
               <p><a class="option_selection" (click)="getData('HRMS system')">HRMS</a></p>
               <p><a class="option_selection" (click)="getData('E-Learning system')">LMS</a></p>
-              <p><a class="option_selection" (click)="getData('Programmers/Developers')">Developers</a>
-              </p>
+              <p><a class="option_selection" (click)="getData('Programmers/Developers')">Developers</a></p>
               <p><a class="option_selection" (click)="getData('Web & Graphics designing')">Designing</a>
               </p>
               <p><a class="option_selection" (click)="getData('Wordpress customisation')">Wordpress</a>
@@ -61,7 +60,18 @@
                 
                  <div class="content">
                     <!-- convert  -->
-                    <span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content | safeHtml" id="df_data"></span>
+                    <div *ngIf="message.content.includes('#custom_text'); else prettyText" class="disable-layer">
+                     
+                     <span class="bg-gray " (click)="customText(placeId)"  [innerHTML]="message.content | safeHtml" id="df_data"></span>
+                     </div>
+                     <ng-template #prettyText>
+                        
+                        <span class="bg-gray" (click)="getDFData($event)" [innerHTML]="message.content | safeHtml" id="df_data"></span>
+                        
+                     </ng-template>
+                     
+                     
+                     <div></div>
                     <div class="time-check">
                        <small class="bubble_tick"><small class="tick1"></small><small class="tick2"></small></small>
                        <small class="time">{{ message.time | date:'h:mm:a' }}</small>
