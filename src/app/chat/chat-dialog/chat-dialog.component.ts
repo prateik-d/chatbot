@@ -196,26 +196,6 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 		this.formValue = option_selection;
 		this.sendMessage();
 	}
-	reset_data() {
-		
-		// interval(100 * 60).subscribe(x => {
-		// 	this.autoTimeMessage('inactive');
-		// });
-
-		// setTimeout(
-		// 	function () {
-		// 		this.autoTimeMessage('inactive');
-		// 	}.bind(this),
-		// 	1000
-		// );
-		
-		this.showMainContent = false;
-		interval(5000 * 60).subscribe(x => {
-			this.showMainContent = true;
-			// this.autoTimeMessage('inactive');
-		});
-
-	}
 
 	setTimeout() {
 		this.userActivity = setTimeout(() => {
@@ -223,7 +203,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 
 			this.userInactive.next(undefined);
 			// console.log('logged out');
-		}, 5000 * 60);
+		}, 5000 *60);
 	  }
 
 	@HostListener("window:mousemove") 

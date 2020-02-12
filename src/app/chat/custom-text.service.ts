@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 
 
 export class CustomTextService {
-    serverUrl = 'http://localhost/blogger/';
+    serverUrl = 'http://localhost/lavalite/';
     // serverUrl = environment.baseUrl;
 
     constructor(private http: HttpClient) {}
